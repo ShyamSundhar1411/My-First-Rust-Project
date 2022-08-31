@@ -1,13 +1,14 @@
 use hello::greet;
 fn main() {
-    greet();
-    let num:i32 = 5;
-    let mut msg:&str;
-    msg = if num==5{
-        "five"
-    }
-    else {
-        "four"
-    };
-    println!("{}",msg);
+    let s1 = String :: from("abc");
+    let mut s2 = s1.clone();
+    do_stuff(&s1);
+    do_another_stuff(&mut s2);
+    println!("{}",s2);
+}
+fn do_stuff(s:&String){
+    println!("{}",s);
+}
+fn do_another_stuff(s: &mut String){
+    s.insert_str(0, "Hi,");
 }
